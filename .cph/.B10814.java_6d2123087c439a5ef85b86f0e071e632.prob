@@ -1,0 +1,1 @@
+{"name":"Local: B10814","url":"/Users/kimseungzzang/백준문제/B10814.java","tests":[{"id":1726626182007,"input":"3\n21 Junkyu\n21 Dohyun\n20 Sunyoung","output":"20 Sunyoung\n21 Junkyu\n21 Dohyun"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/kimseungzzang/백준문제/B10814.java","group":"local","local":true}

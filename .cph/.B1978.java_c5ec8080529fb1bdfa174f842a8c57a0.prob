@@ -1,0 +1,1 @@
+{"name":"Local: B1978","url":"/Users/kimseungzzang/백준문제/B1978.java","tests":[{"id":1725338223337,"input":"4\n1 3 5 7","output":"3"},{"id":1725338910900,"input":"1\n221","output":"1"},{"id":1725338949283,"input":"2\n289\n4\n","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/kimseungzzang/백준문제/B1978.java","group":"local","local":true}

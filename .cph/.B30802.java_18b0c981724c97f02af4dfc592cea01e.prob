@@ -1,0 +1,1 @@
+{"name":"Local: B30802","url":"/Users/kimseungzzang/백준문제/B30802.java","tests":[{"id":1725339672238,"input":"23\n3 1 4 1 5 9\n5 7","output":"7\n3 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/kimseungzzang/백준문제/B30802.java","group":"local","local":true}
