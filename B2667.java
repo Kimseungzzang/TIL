@@ -1,82 +1,78 @@
 import java.util.*;
 
+public class B2667{
 
-public class B2667 {
+    static int[] nx={1,-1,0,0};
+    static int[] ny={0,0,1,-1};
     static int[][] map;
-    static boolean visited[][];
-    static Queue<int[]> queue;
+    static boolean[][] visited;
     static int n;
-    static List<Integer> list;
-    static int[] dx={1,-1,0,0};
-    static int[] dy={0,0,1,-1};
-        public static void main(String args[])
-    {
-        Scanner sc=new Scanner(System.in);
-        queue=new LinkedList<>();
-        list=new ArrayList<>();
-         n= sc.nextInt();
-         visited=new boolean[n][n];
-         map=new int[n][n];
-        for(int i=0;i<n;i++)
+    static ArrayList<Integer> complexes = new ArrayList<>();
+   
+   
+public static void main(String args[])
+{
+    Scanner sc=new Scanner(System.in);
+    n=sc.nextInt();
+    sc.nextLine();
+    visited=new boolean[n][n];
+    map=new int[n][n];
+    for(int i=0;i<n;i++)
+    { String line=sc.nextLine();
+        for(int j=0;j<n;j++)
         {
-            String line = sc.next();
-            for (int j=0;j<n;j++)
-            {
-                int input= line.charAt(j) - '0';
-                map[i][j]=input;
-                if(input==1)
-                {
-                    queue.offer(new int[]{i,j});
-                }
-            }
-        }
-        bfs();
-        Collections.sort(list);
-        for(int a: list)
-        {
-            System.out.println(a);
-        }
-
-
-    }
-
-    public static void bfs(){
+            int input=line.charAt(j)-'0';
+            map[i][j]=input;
         
-     
-
-        while(!queue.isEmpty())
-
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
         {
-            int [] cur=queue.poll();
-            int x=cur[0];
-            int y=cur[1];
-            visited[x][y]=true;
-            int count=0;
-
-            for(int i=0;i<4;i++)
+            if(map[i][j]==1&&!visited[i][j])
             {
-                int nx=x+dx[i];
-                int ny=y+dy[i];
-
-                if(nx>=0&&nx<n&&ny>=0&&ny<n&&!visited[nx][ny])
-                {
-                    if(map[nx][ny]==1)
-                    {
-                    queue.offer(new int[]{nx,ny});
-                    visited[nx][ny]=true;
-                    count++;
-                    
-                    }
-                    else{
-                        list.add(count);
-                      
-                    }
-                }
+                complexes.add(bfs(i,j));
             }
         }
-
     }
+    System.out.println(complexes.size());
+    Collections.sort(complexes);
+    for(int complex:complexes)
+    {
+        System.out.println(complex);
+    }
+}
+public static int bfs(int i,int j)
+{
+    Queue<int[]> queue=new LinkedList<>();
+    queue.offer(new int[]{i,j});
+    visited[i][j]=true;
+    int count=1;
+    while(!queue.isEmpty())
+    {
+        int[] cur=queue.poll();
+        int x=cur[0];
+        int y=cur[1];
 
-    
-    
+        for(int k=0;k<4;k++)
+        {
+            int dx=x+nx[k];
+            int dy=y+ny[k];
+            if(dx>=0&&dx<n&&dy>=0&&dy<n&&!visited[dx][dy]&&map[dx][dy]==1)
+            {
+                
+                queue.offer(new int[]{dx,dy});
+                visited[dx][dy]=true;
+                count++;
+                
+          
+                
+
+            }
+        }
+    }
+    return count;
+
+}
 }
