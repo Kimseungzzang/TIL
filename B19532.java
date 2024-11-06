@@ -11,9 +11,9 @@ public class B19532 {
         int f= sc.nextInt();
         int x=0;
         int y=0;
-        for(int i=-999; i<999;i++)
+        for(int i=-999; i<=999;i++)
         {
-            for(int j=-999;j<999;j++)
+            for(int j=-999;j<=999;j++)
             {
                 if(a*i+b*j==c&&d*i+e*j==f)
                 {
